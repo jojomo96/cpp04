@@ -1,10 +1,11 @@
-
 #include "Ice.hpp"
 #include <iostream>
 
-Ice::Ice() : AMateria("ice") {}
+Ice::Ice() : AMateria("ice") {
+}
 
-Ice::Ice(const Ice &src) : AMateria(src) {}
+Ice::Ice(const Ice &src) : AMateria(src) {
+}
 
 Ice &Ice::operator=(const Ice &src) {
 	if (this != &src) {
@@ -14,7 +15,7 @@ Ice &Ice::operator=(const Ice &src) {
 }
 
 Ice::~Ice() {
-	std::cout << "Ice destructor called" << std::endl;
+	// std::cout << "Ice destructor called" << std::endl;
 }
 
 AMateria *Ice::clone() const {

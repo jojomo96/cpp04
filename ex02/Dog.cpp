@@ -2,12 +2,12 @@
 
 #include <iostream>
 
-Dog::Dog() : Animal("Dog") {
-	_brain = new Brain();
+Dog::Dog() : Animal("Dog"), _brain(new Brain()) {
+	std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &src) : Animal(src) {
-	_brain = new Brain(*src._brain);
+Dog::Dog(const Dog &src) : Animal(src), _brain(new Brain(*src._brain)) {
+	std::cout << "Dog copy constructor called" << std::endl;
 }
 
 Dog::~Dog() {
@@ -15,11 +15,10 @@ Dog::~Dog() {
 	std::cout << "Dog destructor called" << std::endl;
 }
 
-Dog & Dog::operator=(const Dog &src) {
+Dog &Dog::operator=(const Dog &src) {
 	if (this != &src) {
 		Animal::operator=(src); // Call base class assignment operator
-		delete _brain;
-		_brain = new Brain(*src._brain);
+		*_brain = *src._brain; // Use Brain's assignment operator
 	}
 	return *this;
 }

@@ -2,7 +2,7 @@
 #include <iostream>
 
 MateriaSource::MateriaSource() : IMateriaSource(), _materias() {
-	for (auto & _materia : _materias) {
+	for (auto &_materia: _materias) {
 		_materia = nullptr;
 	}
 }
@@ -41,7 +41,7 @@ MateriaSource::~MateriaSource() {
 
 void MateriaSource::learnMateria(AMateria *m) {
 	if (!m) return;
-	for (auto & _materia : _materias) {
+	for (auto &_materia: _materias) {
 		if (!_materia) {
 			_materia = m;
 			break;
@@ -50,7 +50,7 @@ void MateriaSource::learnMateria(AMateria *m) {
 }
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
-	for (const auto & _materia : _materias) {
+	for (const auto &_materia: _materias) {
 		if (_materia && _materia->getType() == type) {
 			return _materia->clone();
 		}

@@ -13,6 +13,7 @@ public:
 	Cat &operator=(const Cat &src);
 
 	void makeSound() const override;
+
 private:
 	Brain *_brain;
 };

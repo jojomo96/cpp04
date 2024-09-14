@@ -1,5 +1,5 @@
 #include "Character.hpp"
-#include "AMateria.hpp"
+
 
 Character::Character() : _name("default"), _inventory() {
 	for (auto &i: _inventory) {

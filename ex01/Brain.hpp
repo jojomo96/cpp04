@@ -11,6 +11,6 @@ public:
 
 	Brain &operator=(const Brain &src);
 
-protected:
+private:
 	std::string ideas[100];
 };

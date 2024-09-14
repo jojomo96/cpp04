@@ -16,7 +16,7 @@ Cure &Cure::operator=(const Cure &src) {
 }
 
 Cure::~Cure() {
-	std::cout << "Cure destructor called" << std::endl;
+	// std::cout << "Cure destructor called" << std::endl;
 }
 
 AMateria *Cure::clone() const {

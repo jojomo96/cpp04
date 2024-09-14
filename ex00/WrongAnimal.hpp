@@ -1,4 +1,3 @@
-
 #pragma once
 #include <string>
 
@@ -8,7 +7,7 @@ public:
 
 	explicit WrongAnimal(const std::string &type);
 
-	virtual ~WrongAnimal();
+	~WrongAnimal();
 
 	WrongAnimal(const WrongAnimal &src);
 

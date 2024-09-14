@@ -1,13 +1,12 @@
-
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat() : Animal("Cat") {
-	_brain = new Brain();
+Cat::Cat() : Animal("Cat"), _brain(new Brain()) {
+	std::cout << "Cat default constructor" << std::endl;
 }
 
-Cat::Cat(const Cat &src) : Animal(src) {
-	_brain = new Brain(*src._brain);
+Cat::Cat(const Cat &src) : Animal(src), _brain(new Brain(*src._brain)) {
+	std::cout << "Cat copy constructor" << std::endl;
 }
 
 Cat::~Cat() {
@@ -15,11 +14,10 @@ Cat::~Cat() {
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-Cat & Cat::operator=(const Cat &src) {
+Cat &Cat::operator=(const Cat &src) {
 	if (this != &src) {
 		Animal::operator=(src); // Call base class assignment operator
-		delete _brain;
-		_brain = new Brain(*src._brain);
+		*_brain = *src._brain; // Use Brain's assignment operator
 	}
 	return *this;
 }
