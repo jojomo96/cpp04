@@ -13,7 +13,9 @@ Animal::~Animal() {
 	std::cout << "Animal destructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &src) = default;
+Animal::Animal(const Animal &src) : _type(src._type) {
+	std::cout << "Animal copy constructor called" << std::endl;
+}
 
 Animal &Animal::operator=(const Animal &src) {
 	if (this != &src) {

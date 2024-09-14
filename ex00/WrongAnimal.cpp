@@ -14,7 +14,9 @@ WrongAnimal::~WrongAnimal() {
 	std::cout << "WrongAnimal destructor" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src) = default;
+WrongAnimal::WrongAnimal(const WrongAnimal &src) : _type(src._type) {
+	std::cout << "WrongAnimal copy constructor" << std::endl;
+}
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src) {
 	if (this != &src) {
