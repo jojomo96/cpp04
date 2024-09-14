@@ -13,7 +13,7 @@ public:
 
 	~MateriaSource() override;
 
-	void learnMateria(AMateria *m) override;
+	void learnMateria(AMateria *materia) override;
 
 	AMateria *createMateria(const std::string &type) override;
 

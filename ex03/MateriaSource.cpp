@@ -39,11 +39,11 @@ MateriaSource::~MateriaSource() {
 	}
 }
 
-void MateriaSource::learnMateria(AMateria *m) {
-	if (!m) return;
+void MateriaSource::learnMateria(AMateria *materia) {
+	if (!materia) return;
 	for (auto &_materia: _materias) {
 		if (!_materia) {
-			_materia = m;
+			_materia = materia;
 			break;
 		}
 	}
