@@ -1,0 +1,19 @@
+#pragma once
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Dog : public Animal {
+public:
+	Dog();
+
+	Dog(const Dog &src);
+
+	~Dog() override;
+
+	Dog &operator=(const Dog &src);
+
+	void makeSound() const override;
+
+private:
+	Brain *_brain;
+};
