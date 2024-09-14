@@ -1,19 +1,19 @@
-
 #include "Character.hpp"
+#include "AMateria.hpp"
 
-Character::Character() : _name("default") , _inventory() {
-	for (auto & i : _inventory) {
+Character::Character() : _name("default"), _inventory() {
+	for (auto &i: _inventory) {
 		i = nullptr;
 	}
 }
 
-Character::Character(const std::string &name) : _name(name) , _inventory() {
-	for (auto & i : _inventory) {
+Character::Character(std::string name) : _name(std::move(name)), _inventory() {
+	for (auto &i: _inventory) {
 		i = nullptr;
 	}
 }
 
-Character::Character(const Character &src) : _name(src._name) , _inventory() {
+Character::Character(const Character &src) : _name(src._name), _inventory() {
 	for (int i = 0; i < 4; ++i) {
 		if (src._inventory[i]) {
 			_inventory[i] = src._inventory[i]->clone();
@@ -41,10 +41,8 @@ Character &Character::operator=(const Character &src) {
 }
 
 Character::~Character() {
-	for (auto & i : _inventory) {
-		if (i) {
-			delete i;
-		}
+	for (const auto &i: _inventory) {
+		delete i;
 	}
 }
 
@@ -54,7 +52,7 @@ const std::string &Character::getName() const {
 
 void Character::equip(AMateria *m) {
 	if (!m) return;
-	for (auto & i : _inventory) {
+	for (auto &i: _inventory) {
 		if (!i) {
 			i = m;
 			break;
@@ -62,13 +60,13 @@ void Character::equip(AMateria *m) {
 	}
 }
 
-void Character::unequip(int idx) {
+void Character::unequip(const int idx) {
 	if (idx >= 0 && idx < 4) {
 		_inventory[idx] = nullptr;
 	}
 }
 
-void Character::use(int idx, ICharacter &target) {
+void Character::use(const int idx, ICharacter &target) {
 	if (idx >= 0 && idx < 4 && _inventory[idx]) {
 		_inventory[idx]->use(target);
 	}

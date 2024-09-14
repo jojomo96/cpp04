@@ -10,6 +10,6 @@ public:
 	Cure &operator=(const Cure &src);
 	~Cure() override;
 
-	AMateria *clone() const override;
+	[[nodiscard]] AMateria *clone() const override;
 	void use(ICharacter &target) override;
 };
